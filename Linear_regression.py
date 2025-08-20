@@ -13,11 +13,11 @@ plt.ylabel('Price (in 1000s of dollars)')
 
 # Hypothesis function for linear regression
 def hypothesis(x, w, b):
-    m = x.shape[0]
-    y=[]
-    for i in range(m):
-        y.append(w * x[i] + b)
-    return y
+  m = x.shape[0]
+  y=[]
+  for i in range(m):
+      y.append(w * x[i] + b)
+  return y
 
 # Calculating the cost function
 def cost_function(x , y , w , b):
@@ -58,15 +58,17 @@ def gradient_descent(x , y , w_in , b_in , alpha , iteration):
     parameter_history.append([w,b])
   return w, b, J_history, parameter_history
 
+# Initial parameters
 w_in = 0
 b_in = 0
 alpha = 0.01
 iteration = 10000
 w, b, J_history, parameter_history = gradient_descent(x_train, y_train, w_in, b_in, alpha, iteration)
 
+# Final Optimal parameters
 print("Optimal parameters: w =", w, ", b =", b)
 
+# Plotting the final hypothesis line
 plt.plot(x_train, hypothesis(x_train, w, b), 'blue', label='Hypothesis Line')
 plt.legend()
 plt.show()
-
